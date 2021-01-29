@@ -1,0 +1,45 @@
+*{ 
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; 축 위에서 조정 */
+    /* *align-items : 축의 수직방향 정렬 */
+    /* align-items: center; */
+    /* align-content: space-around; */
+    height: 100vh;
+    background: lightgray;
+}
+
+.item {
+    /* flex-basis : 요소의 점유 공간 (기본값은 auto) */
+    flex-basis: 0;
+    /* flex-grow: 1; 신축성 : 남은 여백을 나눠가진다는 의미 */
+    /* flex: 1; 축약형 */
+    background: pink;
+}
+
+.item:nth-child(1){
+    flex: 0;
+    align-self: flex-start;
+    order: 3;
+}
+
+.item:nth-child(2){
+    flex: 1;
+    align-self: center;
+    order: 1;
+}
+
+.item:nth-child(3){
+    flex: 1;
+    align-self: flex-end;
+    order: 2;
+}
+
+.item:nth-child(odd) {
+    background: palegoldenrod;
+}
