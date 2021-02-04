@@ -1,3 +1,7 @@
 # 드림코드 강의 저작권 (프로젝트만 업로드)
 typescript/1-types
 typescript/3-oop
+typescript/5-generic
+
+# vcode 설정
+.vscode/
