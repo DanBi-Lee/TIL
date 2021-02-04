@@ -1,0 +1,20 @@
+body{padding:50px}
+.container div {text-align: center; color:#fff;font-size: 2em;}
+.container div:nth-child(1) {background: #96ceb4;}
+.container div:nth-child(2) {background: #ff6f69;}
+.container div:nth-child(3) {background: #88d8b0;}
+.container div:nth-child(4) {background: #ffcc5c;}
+.container div:nth-child(5) {background: #96ceb4;}
+.container div:nth-child(6) {background: #ff6f69;}
+
+.container{
+    display : grid;
+    grid-gap: 4px;
+    /* 
+    * 1/3씩 가로값을 주고 싶을 때? 1fr : fraction
+    */
+    /* grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 80px); */
+    /* 한번에 쓰는 방법 */
+    grid-template: repeat(2, 150px) / repeat(3, 1fr);
+}

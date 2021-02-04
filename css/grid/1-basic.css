@@ -1,0 +1,19 @@
+body{padding:50px}
+.container div {text-align: center; color:#fff;font-size: 2em;}
+.container div:nth-child(1) {background: #96ceb4;}
+.container div:nth-child(2) {background: #ff6f69;}
+.container div:nth-child(3) {background: #88d8b0;}
+.container div:nth-child(4) {background: #ffcc5c;}
+.container div:nth-child(5) {background: #96ceb4;}
+.container div:nth-child(6) {background: #ff6f69;}
+
+.container{
+    display: grid;
+    /* 1. 컬럼의 그리드와 특징 */
+    /* 세로, 가로줄 만들기 */
+    grid-template-columns: 100px auto;
+    grid-template-rows: 100px 100px 200px;
+    /* 그리드 사이의 간격 */
+    grid-gap: 20px;
+    /* grid-column-gap: 10px; */
+}
