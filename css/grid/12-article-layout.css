@@ -1,0 +1,73 @@
+/* General styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+body {
+    margin: 0 10px;
+}
+
+img {
+    width: 100%;
+}
+
+.line-numbers a {
+    text-decoration: none;
+    color: #000;
+    padding-right: 1em;
+}
+
+code {
+    background: #eee;
+    padding: 2px 5px;
+}
+
+pre {
+    background: #eee;
+    padding: 10px 15px;
+    overflow: auto;
+}
+
+pre > code {
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+figure figcaption {
+    color: #666;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+/* 시작 */
+
+article {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+}
+
+article > * {
+    /* grid-column: 2/span 1; */
+    /* 기본값이 1칸이므로 생략 가능 */
+    grid-column: 2;
+}
+
+article > figure {
+    grid-column: 1/-1;
+}
+
+.aside {
+    grid-column: 3;
+    color: #999;
+}
+
+blockquote {
+    grid-column: 1/-1;
+    border-left: 6px solid #eee;
+    padding-left: 20px;
+}

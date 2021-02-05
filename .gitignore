@@ -2,6 +2,7 @@
 typescript/1-types
 typescript/3-oop
 typescript/5-generic
+typescript/7-API
 
 # vcode 설정
 .vscode/

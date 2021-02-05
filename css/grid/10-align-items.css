@@ -1,0 +1,64 @@
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    color: #ffeead;
+}
+
+html, body {
+  box-sizing: border-box;
+  background-color: #ffeead;
+  height: 100%;
+  padding: 10px;
+  margin: 0px;
+}
+
+.container > div:nth-child(1n) {
+    background-color: #96ceb4;	
+}
+
+.container > div:nth-child(3n) {
+    background-color: #88d8b0;
+}
+
+.container > div:nth-child(2n) {
+    background-color: #ff6f69;
+}
+
+.container > div:nth-child(4n) {
+    background-color: #ffcc5c;
+}
+.container {
+    height: 100%; 
+    display: grid;
+    /* 
+    * grid와 flex에서 justify-items, align-items의 기본 값이 stretch가 된다. 
+    */
+    /* justify-items: start;
+    align-items: start; */
+    /* 위는 grid에는 있고 flex에는 없다. */
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px;
+}
+
+.header {
+    grid-column: 1 / -1;
+}
+
+.menu {
+    grid-column: 1 / 3;
+}
+
+.content {
+    grid-column: 3 / -1;
+    /* 아이템 자체만 속성 주기 */
+    align-self: end;
+    justify-self: start;
+}
+
+.footer {
+    grid-column: 1 / -1;
+}
+

@@ -1,0 +1,21 @@
+body{padding:50px}
+.container div {
+    display: flex;
+    text-align: center; color:#fff;font-size: 2em;
+    justify-content: center;
+    align-items: center;
+}
+.container div:nth-child(4n+1) {background: #96ceb4;}
+.container div:nth-child(4n+2) {background: #ff6f69;}
+.container div:nth-child(4n+3) {background: #88d8b0;}
+.container div:nth-child(4n) {background: #ffcc5c;}
+
+.container{
+    display: grid;
+    grid-gap: 5px;
+    /* 갯수 상관 없이 */
+    /* grid-template-columns: repeat(auto-fit, 1fr); */
+    /* 최소 100px 최대 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, 100px);
+}
