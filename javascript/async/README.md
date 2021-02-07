@@ -8,8 +8,8 @@
 
 ### callback
 
-- 강의 주소 : [비동기 처리의 시작 콜백 이해하기, 콜백 지옥 체험 😱 JavaScript Callback](https://youtu.be/s1vpVCrT8f4)
-- 파일 : [callback](./callback.html)
+> - 강의 주소 : [비동기 처리의 시작 콜백 이해하기, 콜백 지옥 체험 😱 JavaScript Callback](https://youtu.be/s1vpVCrT8f4)
+> - 실습 파일 : [callback](./callback.html)
 
 1. 동기와 비동기
 
@@ -24,5 +24,19 @@
   - 비동기 콜백 : 언제 실행될지 알 수 없음
 
 ### promise
+
+> - 강의 주소 : [프로미스 개념부터 활용까지 JavaScript Promise](https://youtu.be/JB_yU6Oe2eE)
+> - 실습 파일 : [promise](./promise.html)
+
+- 프로미스 : 어떤 기능을 수행하고, 성공했다면 처리된 결과 전달, 문제가 발생했다면 에러를 전달한다.
+
+  > ex. 강의 예약 시스템
+  >
+  > - 강의 오픈 전 예약하면 오픈 후 메세지가 감.
+  > - 강의 오픈 후 실행하는 것은 기다릴 필요 없이 바로 메세지.
+
+- 프로미스 포인트
+  1. state(상태) : 기능 수행 중 / 성공 / 실패
+  2. producer(제공자)와 consumer(사용자) 차이
 
 ### async await
