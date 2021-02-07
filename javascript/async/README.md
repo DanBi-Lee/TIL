@@ -40,3 +40,14 @@
   2. producer(제공자)와 consumer(사용자) 차이
 
 ### async await
+
+> - 강의 주소 : [비동기의 꽃 JavaScript async 와 await 그리고 유용한 Promise APIs](https://youtu.be/aoQSOZfz3vQ)
+> - 실습파일 : [async await](./async-await.html)
+
+- async, await
+  - promise대신 async 키워드를 사용할 수 있고.
+  - then 대신 await 키워드를 사용할 수 있다.
+
+> syntactic sugar : 새로운 것이 아닌, 덧붙여진 문법
+
+- [숙제(async awit사용해보기)](./homework-async-await.html)
