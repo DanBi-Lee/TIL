@@ -1,5 +1,7 @@
 # 웹 게임을 만들며 배우는 React
 
+- 강의 링크 : https://www.inflearn.com/course/web-game-React/dashboard
+
 ## 1. 리액트를 왜 쓰는가
 
 1. 사용자 경험

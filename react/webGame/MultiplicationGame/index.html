@@ -26,28 +26,34 @@
             onSubmit = (e )=>{
                 e.preventDefault();
                 if(parseInt(this.state.inputNum) === this.state.num1 * this.state.num2){
-                    this.setState({
-                        resultMessage : `${this.state.num1}x${this.state.num2}=${this.state.inputNum} 정답!`,
-                        num1:  Math.ceil(Math.random()*9),
-                        num2:  Math.ceil(Math.random()*9),
-                        inputNum: '',
-                    })
+                    this.setState((prevState) => {
+                        return {
+                            resultMessage : `${prevState.num1}x${prevState.num2}=${prevState.inputNum} 정답!`,
+                            num1:  Math.ceil(Math.random()*9),
+                            num2:  Math.ceil(Math.random()*9),
+                            inputNum: '',
+                        };
+                    });
                 }else{
                     this.setState({
                     resultMessage: '땡',
                     inputNum : ''
                     });
                 }
+                this.input.focus();
             }
 
             onChange = (e) => this.setState({inputNum: e.target.value});
 
+            // ref사용하기
+            input;
             render(){
+                console.log('렌더링');
                 return (
                     <div>
                         <h1>{this.state.num1} 곱하기 {this.state.num2}는?</h1>
                         <form onSubmit={this.onSubmit}>
-                            <input type="text" value={this.state.inputNum} onChange={this.onChange} />
+                            <input ref={(c)=>this.input = c} type="text" value={this.state.inputNum} onChange={this.onChange} />
                             <button>입력!</button>
                         </form>
                         <p>
