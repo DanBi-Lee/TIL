@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import reducer from "./reducers/index.js";
 import { logIn, logOut } from "./actions/user.js";
 import { addPost } from "./actions/post.js";
@@ -12,7 +12,16 @@ const initialState = {
   posts: [],
 };
 
-const store = createStore(reducer, initialState);
+const firstMiddleware = (store) => (dispatch) => (action) => {
+  console.log("액션 로깅?", action);
+  // 기능 추가
+  dispatch(action); // 기본 동작
+  // 기능 추가
+  console.log("액션 끝");
+};
+
+const enhancer = compose(applyMiddleware(firstMiddleware));
+const store = createStore(reducer, initialState, enhancer);
 store.subscribe(() => {
   // react-redux 안에 들어있다.
   console.log("changed"); // 화면 바꿔주는 코드 여기서
