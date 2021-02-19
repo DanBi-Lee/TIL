@@ -1,56 +1,40 @@
+const { useState, useRef } = require('react');
 const React = require('react');
-const {Component} = React;
 
-class WordRelay extends Component {
-    state = {
-        word : '단비2',
-        value : '',
-        result : '',
-    };
+const WordRelay = () => {
+    const [word, setWord] = useState('단비');
+    const [value, setValue] = useState('');
+    const [result, setResult] = useState('');
+    const input = useRef();
 
-    onChange = (e) => {
-        this.setState({
-            value : e.target.value
-        });
+    const onChange = (e) => {
+        setValue(e.target.value);
     }
 
-    onSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        if(this.state.word[this.state.word.length-1] === this.state.value[0]){
-            this.setState(prev => {
-                return  {
-                result : '딩동댕',
-                value : '',
-                word : prev.value
-                }
-            });
+        if(word[word.length-1] === value[0]){
+            setResult('딩동댕');
+            setWord(value);
+            setValue('');
         }else{
-            this.setState({
-                result : '땡',
-                value : '',
-            });
+            setResult('땡');
+            setValue('');
         }
-        this.input.focus();
+        input.current.focus();
     }
 
-    input;
-
-    onRefInput = (c) => {
-        this.input = c;
-    }
-
-    render (){
-        return <>
-            <h1>{this.state.word}</h1>
-            <form onSubmit={this.onSubmit}>
-                <input ref={this.onRefInput} type="text" value={this.state.value} onChange={this.onChange}/>
-                <button>입력</button>
-            </form>
-            <p>
-                {this.state.result}
-            </p>
-        </>;
-    }
+    return (
+    <>
+        <h1>{word}</h1>
+        <form onSubmit={onSubmit}>
+            <input ref={input} type="text" value={value} onChange={onChange}/>
+            <button>입력</button>
+        </form>
+        <p>
+            {result}
+        </p>
+    </>);
 }
 
 module.exports = WordRelay;
