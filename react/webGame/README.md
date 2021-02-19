@@ -128,4 +128,58 @@
   - 장점 : 필요한 것만 불러올 수 있다.
   - 단점 : html에서 인식하는 것은 js파일 하나 (파일을 하나로 합쳐줘야함. 그래서 웹팩이 나옴)
 
+#### preset-env에 설정 추가하는 방법
+
+```js
+  module: {
+    rules: [
+      {
+        test: /\.jsx?/,
+        loader: "babel-loader",
+        options: {
+          presets: [ // 아래와 같은 식으로 배열로 바꾸고, 객체로 설정을 넣어줌
+            ["@babel/preset-env". {
+              targets : {
+                browsers: ['last 2 chrome versions'],
+              }
+            }],
+            "@babel/preset-react"],
+          plugins: ["@babel/plugin-proposal-class-properties"],
+        },
+      },
+    ],
+  },
+```
+
+- 브라우저 목록 볼 수 있는 사이트 : [browserslist](https://github.com/browserslist/browserslist)
+
+- 플러그인 다 빼보고 오류를 보면서 왜 필요한지 알아보는 방식으로 공부하면 좋음
+
+- 신경쓸 key 5가지
+  - Mode : development production
+  - Entry : 입력
+  - Loaders : 모듈
+  - plugins : 추가적으로 하고 싶은 작업
+  - Output : 출력
+
 ## 끝말잇기
+
+- 방식은 구구단과 비슷
+
+### 웹팩 데브 서버와 핫 리로딩
+
+- 설치 순서
+
+  1. `npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin`
+  2. 개발용 서버 설치 : `npm i -D webpack-dev-server`
+  3. `package.json`파일 스크립트 수정
+     ```json
+     "scripts": {
+       "dev": "webpack serve --env development",
+     },
+     ```
+  4. `webpack.config.js` 수정
+
+- 리로딩과 핫 리로딩의 차이
+  - 리로딩 : 아예 페이지 새로고침
+  - 핫 리로딩 : 새로고침 하지 않은 상태에서의 수정 반영
