@@ -20,7 +20,16 @@ const firstMiddleware = (store) => (dispatch) => (action) => {
   console.log("액션 끝");
 };
 
-const enhancer = compose(applyMiddleware(firstMiddleware));
+const thunkMiddlewrare = (store) => (dispatch) => (action) => {
+  if (typeof action === "function") {
+    // 비동기
+    return action(store.dispatch, store.getState);
+    //
+  }
+  return dispatch(action);
+};
+
+const enhancer = compose(applyMiddleware(firstMiddleware, thunkMiddlewrare));
 const store = createStore(reducer, initialState, enhancer);
 store.subscribe(() => {
   // react-redux 안에 들어있다.
