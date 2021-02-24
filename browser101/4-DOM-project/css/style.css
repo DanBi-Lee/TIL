@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index : -9999;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: #666;
+}
+
+.shopping-app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    height: 70vh;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.shopping-header {
+    padding: 20px;
+    padding-top : 40px;
+    box-sizing: border-box;
+}
+
+.shopping-list {
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1 1;
+    overflow: auto;
+}
+
+.shopping-list > li {
+    display: flex;
+    background: #FDF6F3;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.shopping-list > li+li {
+    margin-top: 20px;
+}
+
+.shopping-item {
+    flex: 1 1;
+}
+
+.delete-item {
+    background-color: transparent;
+    border: none;
+    transition: color 200ms;
+}
+
+.delete-item:hover {
+    color: red;
+}
+
+.shopping-form {
+    color : #afa6a0;
+    position: relative;
+    padding: 20px;
+    height : 60px;
+}
+
+.shopping-form .shopping-input {
+    width: 100%;
+    height: inherit;
+    box-sizing: border-box;
+    padding : 20px;
+    padding-right: 60px;
+    border-radius: 30px;
+    color : inherit;
+    border: 1px solid;
+    outline : none;
+}
+
+.shopping-form .shopping-input:focus, .shopping-input:focus + .shopping-button {
+    color: #222;
+}
+
+.shopping-form .shopping-button {
+    position: absolute;
+    top: 20px;
+    right : 20px;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    color: inherit;
+}
