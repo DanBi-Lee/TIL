@@ -29,6 +29,7 @@ class ShoppingApp {
         return;
       }
       this.addItem($shoppingInput.value);
+      this.$item.scrollIntoView();
       $shoppingInput.value = "";
       $shoppingInput.focus();
     });
@@ -43,6 +44,7 @@ class ShoppingApp {
             <span class="hidden">삭제</span>
         </button>
     `;
+    this.$item = $item;
     this.$shoppingList.appendChild($item);
   }
 }
