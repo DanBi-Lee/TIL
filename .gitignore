@@ -1,4 +1,5 @@
 # 강의 저작권
+## 타입스크립트 강의
 typescript/1-types
 typescript/3-oop
 typescript/5-generic
@@ -7,8 +8,15 @@ typescript/8-exception
 typescript/9-advanced
 typescript/10-javascript
 typescript/11-config
-browser101/
+
+## 브라우저 강의
+browser101/1-WebAPIs
+browser101/2-WebAPIs-project
+
+## 리덕스 mobX 강의
 reduxVSmobX/
+
+## ES6 객체지향 강의
 ES6_UI/
 
 # vcode 설정
