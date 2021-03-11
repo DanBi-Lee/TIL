@@ -129,7 +129,176 @@
      console.log(fruits.lastIndexOf("🍋")); 
      ```
 
-## 숙제
+### 숙제
 
 배열이 선언된 곳에서 배열 관련 API코드 읽어보기
 
+
+
+## 유용한 10가지 배열 함수들. Array APIs 총정리
+
+1. join
+
+   >  \* Adds all the elements of an array into a string, separated by the specified separator string.
+   >
+   >    \* @param separator : A string used to separate one element of the array from the next in the resulting string. If omitted, the array elements are separated with a comma.
+
+   ```typescript
+   join(separator?: string): string;
+   ```
+
+   
+
+2. split
+
+   > \* Split a string into substrings using the specified separator and return them as an array.
+   >
+   >    \* @param splitter An object that can split a string.
+   >
+   >    \* @param limit A value used to limit the number of elements returned in the array.
+
+   ```typescript
+   split(splitter: { [Symbol.split](string: string, limit?: number): string[]; }, limit?: number): string[];
+   ```
+
+3. reverse
+
+   >    \* Reverses the elements in an array in place.
+   >
+   >    \* This method mutates the array and returns a reference to the same array.
+
+   ```typescript
+   reverse(): T[];
+   ```
+
+4. slice
+
+   >   \* Returns a copy of a section of an array.
+   >
+   >    \* For both start and end, a negative index can be used to indicate an offset from the end of the array.
+   >
+   >    \* For example, -2 refers to the second to last element of the array.
+   >
+   >    \* @param start The beginning index of the specified portion of the array.
+   >
+   >    \* If start is undefined, then the slice begins at index 0.
+   >
+   >    \* @param end The end index of the specified portion of the array. This is exclusive of the element at the index 'end'.
+   >
+   >    \* If end is undefined, then the slice extends to the end of the array.
+
+   ```typescript
+   slice(start?: number, end?: number): T[];
+   ```
+
+   - splice와의 차이
+     - splice : 배열 자체를 자름
+     - slice : 배열에서 특정 부분만 가져올 때
+
+5. find
+
+   >    \* Returns the value of the first element in the array where predicate is true, and undefined
+   >
+   >    \* otherwise.
+   >
+   >    \* @param predicate find calls predicate once for each element of the array, in ascending
+   >
+   >    \* order, until it finds one where predicate returns true. If such an element is found, find
+   >
+   >    \* immediately returns that element value. Otherwise, find returns undefined.
+   >
+   >    \* @param thisArg If provided, it will be used as the this value for each invocation of
+   >
+   >    \* predicate. If it is not provided, undefined is used instead.
+
+   ```typescript
+   find<S extends T>(predicate: (this: void, value: T, index: number, obj: T[]) => value is S, thisArg?: any): S | undefined;
+   
+   find(predicate: (value: T, index: number, obj: T[]) => unknown, thisArg?: any): T | undefined;
+   ```
+
+6. filter
+
+   >    \* Returns the elements of an array that meet the condition specified in a callback function.
+   >
+   >    \* @param predicate A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
+   >
+   >    \* @param thisArg An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
+
+   ```typescript
+   filter(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): T[];
+   ```
+
+7. map
+
+   >    \* Calls a defined callback function on each element of an array, and returns an array that contains the results.
+   >
+   >    \* @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
+   >
+   >    \* @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+
+   ```typescript
+   map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];
+   ```
+
+8. some
+
+   - 배열의 요소중에서 콜백함수가 리턴 true가 되는 것이 있는지 확인
+
+   >    \* Determines whether the specified callback function returns true for any element of an array.
+   >
+   >    \* @param predicate A function that accepts up to three arguments. The some method calls
+   >
+   >    \* the predicate function for each element in the array until the predicate returns a value
+   >
+   >    \* which is coercible to the Boolean value true, or until the end of the array.
+   >
+   >    \* @param thisArg An object to which the this keyword can refer in the predicate function.
+   >
+   >    \* If thisArg is omitted, undefined is used as the this value.
+
+   ```typescript
+   some(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): boolean;
+   ```
+
+   - 비슷한 메서드 every
+     - every는 모든 요소가 조건에 해당되는지 확인한다.
+
+9. reduce : 값 누적
+
+   >    \* Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+   >
+   >    \* @param callbackfn A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.
+   >
+   >    \* @param initialValue If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.
+
+   ```typescript
+   reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T;
+    
+   reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue: T): T;
+   ```
+
+   - initialValue가 없으면 첫번째 인자
+   - reduceRight : 순서를 거꾸로 돌면서 더하기
+
+10. sort
+
+    >    \* Sorts an array in place.
+    >
+    >    \* This method mutates the array and returns a reference to the same array.
+    >
+    >    \* @param compareFn Function used to determine the order of the elements. It is expected to return
+    >
+    >    \* a negative value if first argument is less than second argument, zero if they're equal and a positive
+    >
+    >    \* value otherwise. If omitted, the elements are sorted in ascending, ASCII character order.
+    >
+    > ```typescript
+    > [11,2,22,1].sort((a, b) => a - b)
+    > ```
+
+    ```typescript
+    sort(compareFn?: (a: T, b: T) => number): this;
+    ```
+
+    
